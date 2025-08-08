@@ -1,7 +1,12 @@
 @import 'src/styles/component-light-theme.scss';
 ion-title{
-  font-size: 20px;
-      font-weight: 600;
-      color: var(--ion-color-new);
-      text-align: center;;
+  font-size: 1.25rem;         // Tamaño de fuente más grande
+  font-weight: 600;           // Semibold para destacar
+  color: #2c3e50;             // Un gris azulado elegante
+  padding: 16px 20px;         // Espaciado interno
+  background: transparent;    // Para que no tenga fondo blanco si no lo deseas
+  border-bottom: 1px solid #e0e0e0; // Línea sutil debajo
+  text-transform: uppercase; // Opcional: todo en mayúsculas
+  letter-spacing: 0.5px;     // Espaciado entre letras para claridad
+  text-align: center;
 }

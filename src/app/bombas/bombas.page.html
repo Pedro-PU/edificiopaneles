@@ -1,13 +1,87 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>bombas</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Bombas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title>bombas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="bombas-wrapper">
+    <!-- Sección Energía -->
+    <ion-card class="bomba-card">
+      <ion-card-header>
+        <ion-card-title>Energía</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-chip color="primary" *ngIf="energia.calle">
+          <ion-icon name="flash-outline"></ion-icon>
+          <ion-label>Calle</ion-label>
+        </ion-chip>
+        <ion-chip color="warning" *ngIf="energia.solar">
+          <ion-icon name="sunny-outline"></ion-icon>
+          <ion-label>Solar</ion-label>
+        </ion-chip>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Grupo 01 -->
+    <ion-card class="bomba-card">
+      <ion-card-header>
+        <ion-card-title>Grupo 01</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-icon [name]="grupo01.bomba01 ? 'checkmark-circle-outline' : 'close-circle-outline'"
+                        [color]="grupo01.bomba01 ? 'success' : 'danger'"></ion-icon>
+              <p>Bomba 01</p>
+            </ion-col>
+            <ion-col>
+              <ion-icon [name]="grupo01.bomba02 ? 'checkmark-circle-outline' : 'close-circle-outline'"
+                        [color]="grupo01.bomba02 ? 'success' : 'danger'"></ion-icon>
+              <p>Bomba 02</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-icon name="thermometer-outline"></ion-icon>
+              <p>{{ grupo01.temp01 }} °C</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Grupo 02 -->
+    <ion-card class="bomba-card">
+      <ion-card-header>
+        <ion-card-title>Grupo 02</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-icon [name]="grupo02.bomba03 ? 'checkmark-circle-outline' : 'close-circle-outline'"
+                        [color]="grupo02.bomba03 ? 'success' : 'danger'"></ion-icon>
+              <p>Bomba 03</p>
+            </ion-col>
+            <ion-col>
+              <ion-icon [name]="grupo02.bomba04 ? 'checkmark-circle-outline' : 'close-circle-outline'"
+                        [color]="grupo02.bomba04 ? 'success' : 'danger'"></ion-icon>
+              <p>Bomba 04</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-icon name="thermometer-outline"></ion-icon>
+              <p>{{ grupo02.temp02 }} °C</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
