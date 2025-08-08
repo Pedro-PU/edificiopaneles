@@ -29,10 +29,14 @@ export class VPanelesGraficoComponent implements OnChanges {
   strokeDashoffset: number = 0;
   color: string = '#00cc66';
 
-  ngOnChanges() {
-    this.porcentaje = this.mapearVoltajeAPorcentaje(this.voltaje);
-    this.actualizarGauge();
+  ngOnChanges(): void {
+    const nuevoPorcentaje = this.mapearVoltajeAPorcentaje(this.voltaje);
+    if (nuevoPorcentaje !== this.porcentaje) {
+      this.porcentaje = nuevoPorcentaje;
+      this.actualizarGauge();
+    }
   }
+
 
   private mapearVoltajeAPorcentaje(v: number): number {
     const min = 0;

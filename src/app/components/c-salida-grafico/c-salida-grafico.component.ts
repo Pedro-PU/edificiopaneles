@@ -29,10 +29,14 @@ export class CSalidaGraficoComponent implements OnChanges {
   strokeDashoffset: number = 0;
   color: string = '#00cc66';
 
-  ngOnChanges() {
-    this.porcentaje = this.mapearCorrienteAPorcentaje(this.corriente);
-    this.actualizarGauge();
+  ngOnChanges(): void {
+    const newPorcentaje = this.mapearCorrienteAPorcentaje(this.corriente);
+    if (newPorcentaje !== this.porcentaje) {
+      this.porcentaje = newPorcentaje;
+      this.actualizarGauge();
+    }
   }
+
 
   private mapearCorrienteAPorcentaje(i: number): number {
     const min = 0;

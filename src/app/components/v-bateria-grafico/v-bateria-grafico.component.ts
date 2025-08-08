@@ -29,9 +29,12 @@ export class VBateriaGraficoComponent implements OnChanges {
   strokeDashoffset: number = 0;
   color: string = '#00cc66';
 
-  ngOnChanges() {
-    this.porcentaje = this.mapearBateriaAPorcentaje(this.voltajeBateria);
-    this.actualizarGauge();
+  ngOnChanges(): void {
+    const nuevoPorcentaje = this.mapearBateriaAPorcentaje(this.voltajeBateria);
+    if (nuevoPorcentaje !== this.porcentaje) {
+      this.porcentaje = nuevoPorcentaje;
+      this.actualizarGauge();
+    }
   }
 
   private mapearBateriaAPorcentaje(v: number): number {

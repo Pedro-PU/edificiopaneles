@@ -1,26 +1,88 @@
 .gauge-container {
-  max-width: 200px;
+  max-width: 220px;
   margin: 0 auto;
+  padding: 1rem;
+}
 
-  ion-card {
-    text-align: center;
+.gauge-card {
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.015);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+  }
+
+  ion-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+
+    ion-icon {
+      font-size: 24px;
+    }
+
+    ion-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
   }
 }
 
+.icon-panel {
+  font-size: 22px;
+}
+
 .gauge-svg {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
   display: block;
   margin: auto;
 }
 
+.gauge-progress {
+  transition: stroke-dashoffset 1s ease, stroke 0.5s ease;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+}
+
 .value {
   font-size: 24px;
-  fill: #333;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
+  font-weight: 700;
+  fill: #222;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 .subtitle {
-  font-size: 14px;
-  fill: #666;
-  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #777;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
