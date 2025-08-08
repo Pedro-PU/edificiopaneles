@@ -36,12 +36,14 @@
           <ion-row>
             <ion-col>
               <ion-icon [name]="grupo01.bomba01 ? 'checkmark-circle-outline' : 'close-circle-outline'"
-                        [color]="grupo01.bomba01 ? 'success' : 'danger'"></ion-icon>
+                        [color]="grupo01.bomba01 ? 'success' : 'danger'"
+                        (click)="toggleBomba('grupo01', 'bomba01', grupo01.bomba01)"></ion-icon>
               <p>Bomba 01</p>
             </ion-col>
             <ion-col>
               <ion-icon [name]="grupo01.bomba02 ? 'checkmark-circle-outline' : 'close-circle-outline'"
-                        [color]="grupo01.bomba02 ? 'success' : 'danger'"></ion-icon>
+                        [color]="grupo01.bomba02 ? 'success' : 'danger'"
+                        (click)="toggleBomba('grupo01', 'bomba02', grupo01.bomba02)"></ion-icon>
               <p>Bomba 02</p>
             </ion-col>
           </ion-row>
@@ -65,12 +67,14 @@
           <ion-row>
             <ion-col>
               <ion-icon [name]="grupo02.bomba03 ? 'checkmark-circle-outline' : 'close-circle-outline'"
-                        [color]="grupo02.bomba03 ? 'success' : 'danger'"></ion-icon>
+                        [color]="grupo02.bomba03 ? 'success' : 'danger'"
+                        (click)="toggleBomba('grupo02', 'bomba03', grupo02.bomba03)"></ion-icon>
               <p>Bomba 03</p>
             </ion-col>
             <ion-col>
               <ion-icon [name]="grupo02.bomba04 ? 'checkmark-circle-outline' : 'close-circle-outline'"
-                        [color]="grupo02.bomba04 ? 'success' : 'danger'"></ion-icon>
+                        [color]="grupo02.bomba04 ? 'success' : 'danger'"
+                        (click)="toggleBomba('grupo02', 'bomba04', grupo02.bomba04)"></ion-icon>
               <p>Bomba 04</p>
             </ion-col>
           </ion-row>

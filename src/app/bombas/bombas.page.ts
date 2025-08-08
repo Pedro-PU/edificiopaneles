@@ -6,6 +6,8 @@ import { Database, ref, onValue } from '@angular/fire/database';
 import { checkmarkCircleOutline, closeCircleOutline, sunnyOutline, flashOutline, thermometerOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { IonButtons, IonMenuButton } from '@ionic/angular/standalone';
+import { set } from '@angular/fire/database';
+
 @Component({
   selector: 'app-bombas',
   templateUrl: './bombas.page.html',
@@ -47,5 +49,8 @@ export class BombasPage implements OnInit {
       if (data) this.grupo02 = data;
     });
   }
-
+  toggleBomba(grupo: 'grupo01' | 'grupo02', bomba: string, estadoActual: boolean) {
+    const bombaRef = ref(this.db, `bombas/${grupo}/${bomba}`);
+    set(bombaRef, !estadoActual);
+  }
 }
