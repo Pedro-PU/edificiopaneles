@@ -1,10 +1,9 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
+    <ion-menu class="light-menu" contentId="main-content" type="overlay">
+      <ion-content class="light-menu">
         <ion-list id="inbox-list">
           <ion-list-header>Paneles Edificio</ion-list-header>
-          <ion-note>hi&#64;ionicframework.com</ion-note>
 
           @for (p of appPages; track p; let i = $index) {
             <ion-menu-toggle auto-hide="false">
@@ -16,12 +15,12 @@
           }
 
         </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Información adicional</ion-list-header>
-
-        </ion-list>
       </ion-content>
+      <ion-footer class="menu-footer">
+        <ion-toolbar>
+          <ion-title size="small">© SMElektronik</ion-title>
+        </ion-toolbar>
+      </ion-footer>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
