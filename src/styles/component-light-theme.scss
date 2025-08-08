@@ -1,0 +1,44 @@
+:host {
+  /* Fondo claro */
+  --ion-background-color: #f9fafb; 
+  --ion-text-color: #222222; 
+
+  /* Sombra y fondo para las tarjetas */
+  ion-card {
+    --background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: var(--ion-text-color);
+    border-radius: 12px;
+  }
+
+  /* Fondo y texto para ion-content */
+  ion-content {
+    --background: var(--ion-background-color);
+    color: var(--ion-text-color);
+  }
+
+  /* Toolbar clara */
+  ion-toolbar {
+    --background: #ffffff;
+    --color: #222222;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+
+  ion-title {
+    color: var(--ion-text-color);
+  }
+
+  ion-icon {
+    color: #007acc; /* un azul agradable para íconos */
+  }
+
+  /* Ajuste para textos pequeños y subtítulos */
+  .subtitle {
+    fill: #555555 !important;
+  }
+
+  /* Animaciones suaves para cambios de color */
+  ion-card, ion-toolbar, ion-content {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}

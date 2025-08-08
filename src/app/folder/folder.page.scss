@@ -1,3 +1,5 @@
+@import 'src/styles/component-light-theme.scss';
+
 .paneles-wrapper {
   display: flex;
   flex-direction: column;
@@ -22,7 +24,7 @@
     ion-card-title {
       font-size: 20px;
       font-weight: 600;
-      color: var(--ion-color-primary);
+      color: var(--ion-color-new);
     }
   }
 
@@ -30,7 +32,12 @@
     padding-top: 1rem;
   }
 }
-
+ion-title{
+  font-size: 20px;
+      font-weight: 600;
+      color: var(--ion-color-new);
+      text-align: center;;
+}
 /* Responsive tweaks for smaller screens */
 @media (max-width: 576px) {
   .panel-card ion-card-header ion-card-title {
