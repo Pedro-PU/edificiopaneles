@@ -1,0 +1,129 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Estado de Paneles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Repite este bloque para panel1, panel2, ... -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Panel 01</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <!-- Grid para alinear los 4 gauges -->
+      <ion-grid>
+        <ion-row>
+
+          <ion-col size="6" size-md="3">
+            <app-c-salida-grafico
+              [corriente]="panel1.CSalida">
+            </app-c-salida-grafico>
+          </ion-col>
+
+          <ion-col size="6" size-md="3">
+            <app-v-salida-grafico
+              [voltaje]="panel1.VSalida">
+            </app-v-salida-grafico>
+          </ion-col>
+
+          <ion-col size="6" size-md="3">
+            <app-v-paneles-grafico
+              [voltaje]="panel1.VPaneles">
+            </app-v-paneles-grafico>
+          </ion-col>
+
+          <ion-col size="6" size-md="3">
+            <app-v-bateria-grafico
+              [voltajeBateria]="panel1.VBateria">
+            </app-v-bateria-grafico>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+      <!-- Listado de valores en texto (opcional) -->
+      <ion-item lines="none">
+        <ion-icon slot="start" name="flash"></ion-icon>
+        <ion-label>Corriente: {{ panel1.CSalida }} A</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon slot="start" name="speedometer"></ion-icon>
+        <ion-label>Voltaje Salida: {{ panel1.VSalida }} V</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon slot="start" name="battery-charging"></ion-icon>
+        <ion-label>Voltaje Paneles: {{ panel1.VPaneles }} V</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon slot="start" name="battery-full"></ion-icon>
+        <ion-label>Batería: 
+          {{ ((panel1.VBateria - 243) / (260 - 243) * 100) | number:'1.0-0' }}%
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Clona el mismo bloque para Panel 02 -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Panel 02</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="3">
+            <app-c-salida-grafico
+              [corriente]="panel2.CSalida">
+            </app-c-salida-grafico>
+          </ion-col>
+          <ion-col size="6" size-md="3">
+            <app-v-salida-grafico
+              [voltaje]="panel2.VSalida">
+            </app-v-salida-grafico>
+          </ion-col>
+          <ion-col size="6" size-md="3">
+            <app-v-paneles-grafico
+              [voltaje]="panel2.VPaneles">
+            </app-v-paneles-grafico>
+          </ion-col>
+          <ion-col size="6" size-md="3">
+            <app-v-bateria-grafico
+              [voltajeBateria]="panel2.VBateria">
+            </app-v-bateria-grafico>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Datos en texto -->
+      <ion-item lines="none">
+        <ion-icon slot="start" name="flash"></ion-icon>
+        <ion-label>Corriente: {{ panel2.CSalida }} A</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon slot="start" name="speedometer"></ion-icon>
+        <ion-label>Voltaje Salida: {{ panel2.VSalida }} V</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon slot="start" name="battery-charging"></ion-icon>
+        <ion-label>Voltaje Paneles: {{ panel2.VPaneles }} V</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon slot="start" name="battery-full"></ion-icon>
+        <ion-label>Batería: 
+          {{ ((panel2.VBateria - 243) / (260 - 243) * 100) | number:'1.0-0' }}%
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+  <br>
+  <br>
+  <br>
+</ion-content>

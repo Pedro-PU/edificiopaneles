@@ -1,0 +1,26 @@
+.gauge-container {
+  max-width: 200px;
+  margin: 0 auto;
+
+  ion-card {
+    text-align: center;
+  }
+}
+
+.gauge-svg {
+  display: block;
+  margin: auto;
+}
+
+.value {
+  font-size: 24px;
+  fill: #333;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.subtitle {
+  font-size: 14px;
+  fill: #666;
+  font-family: Arial, sans-serif;
+}

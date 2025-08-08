@@ -1,0 +1,31 @@
+<div class="gauge-container">
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="speedometer" color="primary"></ion-icon>
+      <ion-card-title>Voltaje Salida</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <svg width="150" height="100" viewBox="0 0 150 150" class="gauge-svg">
+        <circle
+          cx="75" cy="75" r="60"
+          fill="none" stroke="#e6e6e6"
+          stroke-width="15"
+          stroke-dasharray="376.99"
+          transform="rotate(-90 75 75)">
+        </circle>
+        <circle
+          cx="75" cy="75" r="60"
+          fill="none"
+          [attr.stroke]="color"
+          stroke-width="15"
+          stroke-dasharray="376.99"
+          [attr.stroke-dashoffset]="strokeDashoffset"
+          transform="rotate(-90 75 75)"
+          style="transition: stroke-dashoffset 0.8s ease, stroke 0.5s ease;">
+        </circle>
+        <text x="75" y="80" text-anchor="middle" class="value">{{ voltaje | number:'1.1-1' }} V</text>
+        <text x="75" y="110" text-anchor="middle" class="subtitle">Salida</text>
+      </svg>
+    </ion-card-content>
+  </ion-card>
+</div>

@@ -1,0 +1,8 @@
+{
+  "appId": "ionic.edificiopaneles",
+  "appName": "edificiopaneles",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
