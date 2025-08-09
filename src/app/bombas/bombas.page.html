@@ -9,7 +9,8 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="bombas-wrapper">
-    <!-- Sección Energía -->
+
+    <!-- Energía -->
     <ion-card class="bomba-card">
       <ion-card-header>
         <ion-card-title>Energía</ion-card-title>
@@ -33,26 +34,36 @@
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-icon [name]="grupo01.bomba01 ? 'checkmark-circle-outline' : 'close-circle-outline'"
-                        [color]="grupo01.bomba01 ? 'success' : 'danger'"
-                        (click)="toggleBomba('grupo01', 'bomba01', grupo01.bomba01)"></ion-icon>
-              <p>Bomba 01</p>
+
+          <!-- Bombas centradas y responsive -->
+          <ion-row class="ion-justify-content-center ion-align-items-center">
+            <ion-col size="6" size-md="4" size-lg="3">
+              <app-bomba-estado
+                nombre="Bomba 01"
+                [encendida]="grupo01.bomba01"
+                (toggle)="toggleBomba('grupo01','bomba01',grupo01.bomba01)">
+              </app-bomba-estado>
             </ion-col>
-            <ion-col>
-              <ion-icon [name]="grupo01.bomba02 ? 'checkmark-circle-outline' : 'close-circle-outline'"
-                        [color]="grupo01.bomba02 ? 'success' : 'danger'"
-                        (click)="toggleBomba('grupo01', 'bomba02', grupo01.bomba02)"></ion-icon>
-              <p>Bomba 02</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-icon name="thermometer-outline"></ion-icon>
-              <p>{{ grupo01.temp01 }} °C</p>
+            <ion-col size="6" size-md="4" size-lg="3">
+              <app-bomba-estado
+                nombre="Bomba 02"
+                [encendida]="grupo01.bomba02"
+                (toggle)="toggleBomba('grupo01','bomba02',grupo01.bomba02)">
+              </app-bomba-estado>
             </ion-col>
           </ion-row>
+
+          <!-- Termómetro centrado -->
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="auto">
+              <app-termometro
+                [temperature]="grupo01.temp01"
+                [min]="0"
+                [max]="100">
+              </app-termometro>
+            </ion-col>
+          </ion-row>
+
         </ion-grid>
       </ion-card-content>
     </ion-card>
@@ -64,28 +75,37 @@
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-icon [name]="grupo02.bomba03 ? 'checkmark-circle-outline' : 'close-circle-outline'"
-                        [color]="grupo02.bomba03 ? 'success' : 'danger'"
-                        (click)="toggleBomba('grupo02', 'bomba03', grupo02.bomba03)"></ion-icon>
-              <p>Bomba 03</p>
+
+          <ion-row class="ion-justify-content-center ion-align-items-center">
+            <ion-col size="6" size-md="4" size-lg="3">
+              <app-bomba-estado
+                nombre="Bomba 03"
+                [encendida]="grupo02.bomba03"
+                (toggle)="toggleBomba('grupo02','bomba03',grupo02.bomba03)">
+              </app-bomba-estado>
             </ion-col>
-            <ion-col>
-              <ion-icon [name]="grupo02.bomba04 ? 'checkmark-circle-outline' : 'close-circle-outline'"
-                        [color]="grupo02.bomba04 ? 'success' : 'danger'"
-                        (click)="toggleBomba('grupo02', 'bomba04', grupo02.bomba04)"></ion-icon>
-              <p>Bomba 04</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-icon name="thermometer-outline"></ion-icon>
-              <p>{{ grupo02.temp02 }} °C</p>
+            <ion-col size="6" size-md="4" size-lg="3">
+              <app-bomba-estado
+                nombre="Bomba 04"
+                [encendida]="grupo02.bomba04"
+                (toggle)="toggleBomba('grupo02','bomba04',grupo02.bomba04)">
+              </app-bomba-estado>
             </ion-col>
           </ion-row>
+
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="auto">
+              <app-termometro
+                [temperature]="grupo02.temp02"
+                [min]="0"
+                [max]="100">
+              </app-termometro>
+            </ion-col>
+          </ion-row>
+
         </ion-grid>
       </ion-card-content>
     </ion-card>
+
   </div>
 </ion-content>

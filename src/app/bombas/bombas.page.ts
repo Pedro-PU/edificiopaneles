@@ -1,22 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol, IonIcon, IonLabel, IonChip, IonButtons, IonMenuButton, AlertController } from '@ionic/angular/standalone';
+import { AlertController } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 import { Database, ref, onValue, set } from '@angular/fire/database';
 import { checkmarkCircleOutline, closeCircleOutline, sunnyOutline, flashOutline, thermometerOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
-
+import { BombaEstadoComponent } from '../components/bomba-estado/bomba-estado.component';
+import { TermometroComponent }   from '../components/termometro/termometro.component';
 @Component({
   selector: 'app-bombas',
   templateUrl: './bombas.page.html',
   styleUrls: ['./bombas.page.scss'],
   standalone: true,
   imports: [
-    IonContent, IonHeader, IonTitle, IonToolbar, 
-    IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-    IonGrid, IonRow, IonCol, IonIcon, IonLabel, IonChip,
-    CommonModule, FormsModule, IonButtons, IonMenuButton
-  ]
+  CommonModule,
+  FormsModule,
+  IonicModule,
+  BombaEstadoComponent,
+  TermometroComponent
+]
 })
 export class BombasPage implements OnInit {
 

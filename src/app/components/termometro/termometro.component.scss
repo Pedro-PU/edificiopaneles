@@ -1,0 +1,47 @@
+.termometro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  margin: auto;
+
+  .thermometer {
+    position: relative;
+    width: 16px;
+    height: 120px;
+    background: #f0f0f0;
+    border: 2px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 6px;
+
+    // Bulbo inferior
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 32px;
+      background: #f0f0f0;
+      border: 2px solid #444;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .mercury {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(135deg, #e53935 0%, #ff8a80 100%);
+      transition: height 0.6s ease-in-out;
+    }
+  }
+
+  .label {
+    font-size: 0.9rem;
+    color: #333;
+    text-align: center;
+  }
+}

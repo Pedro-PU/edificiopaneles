@@ -1,0 +1,10 @@
+<div class="bomba-container" [class.active]="encendida" (click)="onClick()">
+  <div class="pump">
+    <div class="motor"></div>
+    <div class="rod"></div>
+    <div class="impeller"></div>
+  </div>
+  <!-- gota animada solo si está activa -->
+  <span class="droplet" *ngIf="encendida"></span>
+  <div class="label-wrapper">{{ nombre }}</div>
+</div>

@@ -1,0 +1,114 @@
+.bomba-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 100px;
+  margin: 0 auto;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .pump {
+    position: relative;
+    width: 60px;
+    height: 40px;
+    margin-bottom: 6px;
+
+    .motor {
+      width: 40px;
+      height: 24px;
+      background: #555;
+      border-radius: 4px;
+      position: absolute;
+      top: 8px;
+      left: 10px;
+    }
+
+    .rod {
+      width: 8px;
+      height: 32px;
+      background: #333;
+      position: absolute;
+      top: 4px;
+      left: calc(50% - 4px);
+      border-radius: 4px;
+    }
+
+    .impeller {
+      width: 16px;
+      height: 16px;
+      background: #777;
+      border-radius: 50%;
+      position: absolute;
+      top: 12px;
+      left: calc(50% - 8px);
+      transform-origin: center;
+      transition: background 0.3s ease;
+    }
+  }
+
+  .droplet {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #2196f3;
+    border-radius: 50%;
+    animation: drip 1.5s infinite ease-in;
+    margin-bottom: 4px;
+  }
+
+  .label-wrapper {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+}
+
+/* Estado apagado */
+.bomba-container:not(.active) {
+  .pump {
+    .impeller {
+      background: #999;
+    }
+  }
+  .label-wrapper {
+    color: #999;
+  }
+}
+
+/* Estado activo */
+.bomba-container.active {
+  .pump {
+    .impeller {
+      background: #2196f3;
+      animation: spin 1s linear infinite;
+    }
+  }
+  .label-wrapper {
+    color: #2196f3;
+    font-weight: bold;
+  }
+}
+
+/* Animaciones */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes drip {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
