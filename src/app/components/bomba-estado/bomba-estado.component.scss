@@ -13,23 +13,23 @@
 
   .pump {
     position: relative;
-    width: 60px;
-    height: 40px;
+    width: 78px; // antes 60px
+    height: 52px; // antes 40px
     margin-bottom: 6px;
 
     .motor {
-      width: 40px;
-      height: 24px;
+      width: 52px; // antes 40px
+      height: 31px; // antes 24px
       background: #555;
       border-radius: 4px;
       position: absolute;
-      top: 8px;
-      left: 10px;
+      top: 10px; // ajustado proporcionalmente
+      left: 13px; // ajustado proporcionalmente
     }
 
     .rod {
-      width: 8px;
-      height: 32px;
+      width: 10px; // antes 8px
+      height: 40px; // antes 32px
       background: #333;
       position: absolute;
       top: 4px;
@@ -38,8 +38,8 @@
     }
 
     .impeller {
-      width: 16px;
-      height: 16px;
+      width: 19px; // antes 16px
+      height: 18px; // antes 16px
       background: #777;
       border-radius: 50%;
       position: absolute;
@@ -52,8 +52,8 @@
 
   .droplet {
     display: block;
-    width: 8px;
-    height: 8px;
+    width: 10px; // antes 8px
+    height: 10px; // antes 8px
     background: #2196f3;
     border-radius: 50%;
     animation: drip 1.5s infinite ease-in;
@@ -61,7 +61,7 @@
   }
 
   .label-wrapper {
-    font-size: 0.9rem;
+    font-size: 1.05rem; // un poco más grande
     color: #666;
     text-align: center;
     transition: color 0.3s ease;
