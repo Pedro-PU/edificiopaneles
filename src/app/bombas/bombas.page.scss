@@ -82,6 +82,7 @@ ion-title {
 }
 
 .gauge-col {
+  flex: 1 1 auto; 
   display: flex;
   justify-content: center; // Centra horizontalmente
   align-items: center;
@@ -94,6 +95,46 @@ ion-title {
 }
 
 
+.bombas-wrapper ion-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch; /* columnas con igual altura */
+}
+
+.bombas-wrapper ion-col {
+  border-left: 1px solid #e0e0e0;
+  padding-left: 1rem;
+  display: flex;            /* para que ion-col pueda estirar */
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bombas-wrapper ion-col:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+/* Para que los componentes llenen su columna */
+.bombas-wrapper ion-col > * {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .bombas-wrapper ion-col {
+    border-left: none;
+    border-top: 1px solid #e0e0e0;
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  .bombas-wrapper ion-col:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
 
 @keyframes fadeSlideUp {
   from {

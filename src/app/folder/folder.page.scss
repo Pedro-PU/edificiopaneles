@@ -6,7 +6,39 @@
   gap: 2rem;
   padding-bottom: 3rem;
 }
+.paneles-wrapper ion-col {
+  border-left: 1px solid #e0e0e0; /* línea vertical */
+  padding-left: 1rem;
+  /* para que no se pegue al borde */
+}
 
+/* Quitar borde izquierdo al primer ion-col de cada fila */
+.paneles-wrapper ion-col:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+/* Quitar borde izquierdo al primer ion-col de cada fila */
+.paneles-wrapper ion-col:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+/* Cuando la pantalla es pequeña, apilar los componentes y poner borde horizontal */
+@media (max-width: 576px) {
+  .paneles-wrapper ion-col {
+    border-left: none;       /* quitar borde vertical */
+    border-top: 1px solid #e0e0e0; /* poner borde horizontal */
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  /* Quitar borde arriba al primer componente para que no quede doble espacio */
+  .paneles-wrapper ion-col:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
 .panel-card {
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);

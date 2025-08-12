@@ -37,22 +37,22 @@
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
-          <ion-row class="ion-justify-content-center ion-align-items-center">
-            <ion-col size="auto" size-md="4" size-lg="3">
+          <ion-row class="ion-justify-content-center ion-align-items-stretch">
+            <ion-col size="12" size-md="4" size-lg="3">
               <app-bomba-estado
                 nombre="Bomba 01"
                 [encendida]="grupo01.bomba01"
                 (toggle)="toggleBomba('grupo01','bomba01',grupo01.bomba01)">
               </app-bomba-estado>
             </ion-col>
-            <ion-col size="auto">
+            <ion-col size="12" size-md="4" size-lg="3">
               <app-termometro
                 [temperature]="grupo01.temp01"
                 [min]="0"
                 [max]="100">
               </app-termometro>
             </ion-col>
-            <ion-col size="auto" size-md="4" size-lg="3">
+            <ion-col size="12" size-md="4" size-lg="3">
               <app-bomba-estado
                 nombre="Bomba 02"
                 [encendida]="grupo01.bomba02"
@@ -71,22 +71,22 @@
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
-          <ion-row class="ion-justify-content-center ion-align-items-center">
-            <ion-col size="auto" size-md="4" size-lg="3">
+          <ion-row class="ion-justify-content-center ion-align-items-stretch">
+            <ion-col size="12" size-md="4" size-lg="3">
               <app-bomba-estado
                 nombre="Bomba 03"
                 [encendida]="grupo02.bomba03"
                 (toggle)="toggleBomba('grupo02','bomba03',grupo02.bomba03)">
               </app-bomba-estado>
             </ion-col>
-            <ion-col size="auto">
+            <ion-col size="12" size-md="4" size-lg="3">
               <app-termometro
                 [temperature]="grupo02.temp02"
                 [min]="0"
                 [max]="100">
               </app-termometro>
             </ion-col>
-            <ion-col size="auto" size-md="4" size-lg="3">
+            <ion-col size="12" size-md="4" size-lg="3">
               <app-bomba-estado
                 nombre="Bomba 04"
                 [encendida]="grupo02.bomba04"
