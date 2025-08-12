@@ -6,14 +6,18 @@
   padding: 1rem;
 }
 
-.gauge-card {
+.gauge-card,
+ion-card.gauge-card {
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none !important;         // Quita borde
+  outline: none !important;        // Quita contorno
+  box-shadow: none !important;     // Quita sombra externa
+  --box-shadow: none !important;   // Quita sombra en Ionic
+  --border-color: transparent !important;
 
   &:hover {
     transform: scale(1.015);
-    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+    box-shadow: none !important;   // Sin sombra al hover
   }
 
   ion-card-header {
@@ -35,6 +39,12 @@
   }
 }
 
+.gauge-card::after,
+.gauge-card::before {
+  box-shadow: none !important;
+  border: none !important;
+}
+
 .icon-panel {
   font-size: 22px;
 }
@@ -49,7 +59,7 @@
 
 .gauge-progress {
   transition: stroke-dashoffset 1s ease, stroke 0.5s ease;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+  filter: none !important; // Quita drop-shadow
 }
 
 .value {

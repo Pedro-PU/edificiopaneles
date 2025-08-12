@@ -76,6 +76,25 @@ ion-title {
   animation: fadeSlideUp 0.6s ease;
 }
 
+.gauges-row {
+  width: 100%;
+  text-align: center; // Centra contenido en cada columna
+}
+
+.gauge-col {
+  display: flex;
+  justify-content: center; // Centra horizontalmente
+  align-items: center;
+}
+
+.gauge-col app-energia-calle,
+.gauge-col app-v-bateria-grafico,
+.gauge-col app-energia-solar {
+  margin: auto; // Asegura que el componente esté al centro
+}
+
+
+
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
