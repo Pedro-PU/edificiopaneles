@@ -10,25 +10,20 @@
     transform: scale(1.05);
   }
 
-  .bolt {
-    position: relative;
-    width: 0;
-    height: 0;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-bottom: 25px solid #fdd835;
+  .bolt-icon {
+    width: 64px;
+    height: 64px;
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 18px;
-      left: -12px;
-      width: 0;
-      height: 0;
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-top: 25px solid #fdd835;
-    }
+  .bolt-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bolt-shape {
+    fill: #fdd835;
+    stroke: #fbc02d;
+    stroke-width: 2;
   }
 
   .label-wrapper {
@@ -41,8 +36,8 @@
   &.active {
     opacity: 1;
 
-    .bolt {
-      animation: flash 0.5s ease-in-out infinite alternate;
+    .bolt-shape {
+      animation: flash 0.6s ease-in-out infinite alternate;
     }
 
     .label-wrapper {
@@ -51,7 +46,6 @@
     }
   }
 }
-
 
 @keyframes flash {
   0% { filter: brightness(1); }

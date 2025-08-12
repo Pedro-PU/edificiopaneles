@@ -21,12 +21,13 @@
             <app-energia-calle [activa]="energia.calle" nombre="Calle" ></app-energia-calle>
           </ion-col>
           <ion-col size="6" size-md="4">
+            <app-v-bateria-grafico [voltajeBateria]="panel2.VBateria"></app-v-bateria-grafico>
+          </ion-col>
+          <ion-col size="6" size-md="4">
             <app-energia-solar [activa]="energia.solar" nombre="Solar"></app-energia-solar>
           </ion-col>
         </ion-row>
-        <ion-col size="12" size-sm="6" size-md="3">
-          <app-v-bateria-grafico [voltajeBateria]="panel2.VBateria"></app-v-bateria-grafico>
-        </ion-col>
+        
       </ion-card-content>
     </ion-card>
 
@@ -37,8 +38,6 @@
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
-
-          <!-- Bombas centradas y responsive -->
           <ion-row class="ion-justify-content-center ion-align-items-center">
             <ion-col size="6" size-md="4" size-lg="3">
               <app-bomba-estado
@@ -46,6 +45,13 @@
                 [encendida]="grupo01.bomba01"
                 (toggle)="toggleBomba('grupo01','bomba01',grupo01.bomba01)">
               </app-bomba-estado>
+            </ion-col>
+            <ion-col size="auto" class="ion-justify-content-center">
+              <app-termometro
+                [temperature]="grupo01.temp01"
+                [min]="0"
+                [max]="100">
+              </app-termometro>
             </ion-col>
             <ion-col size="6" size-md="4" size-lg="3">
               <app-bomba-estado
@@ -55,18 +61,6 @@
               </app-bomba-estado>
             </ion-col>
           </ion-row>
-
-          <!-- Termómetro centrado -->
-          <ion-row class="ion-justify-content-center">
-            <ion-col size="auto">
-              <app-termometro
-                [temperature]="grupo01.temp01"
-                [min]="0"
-                [max]="100">
-              </app-termometro>
-            </ion-col>
-          </ion-row>
-
         </ion-grid>
       </ion-card-content>
     </ion-card>
@@ -78,7 +72,6 @@
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
-
           <ion-row class="ion-justify-content-center ion-align-items-center">
             <ion-col size="6" size-md="4" size-lg="3">
               <app-bomba-estado
@@ -86,6 +79,13 @@
                 [encendida]="grupo02.bomba03"
                 (toggle)="toggleBomba('grupo02','bomba03',grupo02.bomba03)">
               </app-bomba-estado>
+            </ion-col>
+            <ion-col size="auto"class="ion-justify-content-center">
+              <app-termometro
+                [temperature]="grupo02.temp02"
+                [min]="0"
+                [max]="100">
+              </app-termometro>
             </ion-col>
             <ion-col size="6" size-md="4" size-lg="3">
               <app-bomba-estado
@@ -95,20 +95,8 @@
               </app-bomba-estado>
             </ion-col>
           </ion-row>
-
-          <ion-row class="ion-justify-content-center">
-            <ion-col size="auto">
-              <app-termometro
-                [temperature]="grupo02.temp02"
-                [min]="0"
-                [max]="100">
-              </app-termometro>
-            </ion-col>
-          </ion-row>
-
         </ion-grid>
       </ion-card-content>
     </ion-card>
-
   </div>
 </ion-content>
