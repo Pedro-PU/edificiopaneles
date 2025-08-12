@@ -8,6 +8,10 @@ import { checkmarkCircleOutline, closeCircleOutline, sunnyOutline, flashOutline,
 import { addIcons } from 'ionicons';
 import { BombaEstadoComponent } from '../components/bomba-estado/bomba-estado.component';
 import { TermometroComponent }   from '../components/termometro/termometro.component';
+import { VBateriaGraficoComponent } from '../components/v-bateria-grafico/v-bateria-grafico.component'
+import { AppEnergiaCalleComponent } from '../components/app-energia-calle/app-energia-calle.component';
+import { AppEnergiaSolarComponent } from '../components/app-energia-solar/app-energia-solar.component';
+
 @Component({
   selector: 'app-bombas',
   templateUrl: './bombas.page.html',
@@ -18,7 +22,10 @@ import { TermometroComponent }   from '../components/termometro/termometro.compo
   FormsModule,
   IonicModule,
   BombaEstadoComponent,
-  TermometroComponent
+  TermometroComponent,
+  VBateriaGraficoComponent,
+  AppEnergiaCalleComponent,
+  AppEnergiaSolarComponent
 ]
 })
 export class BombasPage implements OnInit {
@@ -26,12 +33,13 @@ export class BombasPage implements OnInit {
   energia = { calle: false, solar: false };
   grupo01 = { bomba01: false, bomba02: false, temp01: 0 };
   grupo02 = { bomba03: false, bomba04: false, temp02: 0 };
-
+  panel2: any = {};
   constructor(private db: Database, private alertCtrl: AlertController) { 
     addIcons({ checkmarkCircleOutline, closeCircleOutline, sunnyOutline, flashOutline, thermometerOutline });
   }
 
   ngOnInit() {
+    this.getPanelData('panel02', (data) => this.panel2 = data);
     onValue(ref(this.db, 'bombas/energia'), snapshot => {
       const data = snapshot.val();
       if (data) this.energia = data;
@@ -45,6 +53,18 @@ export class BombasPage implements OnInit {
     onValue(ref(this.db, 'bombas/grupo02'), snapshot => {
       const data = snapshot.val();
       if (data) this.grupo02 = data;
+    });
+  }
+
+  private getPanelData(panelName: string, callback: (data: any) => void) {
+    const panelRef = ref(this.db, `paneles/${panelName}`);
+    onValue(panelRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        callback({
+          VBateria: data.VBateria
+        });
+      }
     });
   }
 

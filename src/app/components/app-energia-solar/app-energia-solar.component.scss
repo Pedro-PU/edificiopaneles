@@ -1,0 +1,68 @@
+.energia-solar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 100px;
+  margin: 0 auto;
+  opacity: 0.4;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .sun {
+    position: relative;
+    width: 50px;
+    height: 50px;
+
+    .core {
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, #FFD700 60%, #FFA500);
+      border-radius: 50%;
+      margin: auto;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    .rays {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background: repeating-conic-gradient(#FFD700 0deg 15deg, transparent 15deg 30deg);
+      border-radius: 50%;
+      animation: spin-rays 6s linear infinite;
+    }
+  }
+
+  .label-wrapper {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: #999;
+  }
+
+  &.active {
+    opacity: 1;
+
+    .rays {
+      animation: spin-rays 3s linear infinite;
+    }
+
+    .label-wrapper {
+      font-weight: bold;
+      color: #FFA500;
+    }
+  }
+}
+
+
+@keyframes spin-rays {
+  to {
+    transform: rotate(360deg);
+  }
+}
