@@ -17,9 +17,11 @@ import {
   IonRouterLink,
   IonFooter,
   IonToolbar,
-  IonTitle
+  IonTitle,
+  IonInput,
+  IonButton
 } from '@ionic/angular/standalone';
-
+import { FormsModule } from '@angular/forms';
 import { addIcons } from 'ionicons';
 import { appRoutes } from './app.routes';
 
@@ -33,6 +35,9 @@ import {
   batteryCharging,
   batteryFull,
 } from 'ionicons/icons';
+import { inject } from '@angular/core';
+import { Database, ref, get } from '@angular/fire/database';
+
 
 @Component({
   selector: 'app-root',
@@ -41,6 +46,7 @@ import {
   standalone: true,
   imports: [
     CommonModule,
+    FormsModule,
     RouterLink,
     RouterLinkActive,
     IonApp,
@@ -58,24 +64,20 @@ import {
     IonRouterOutlet,
     IonFooter,
     IonToolbar,
-    IonTitle
+    IonTitle,
+    IonInput,
+    IonButton
   ],
 })
 export class AppComponent {
   public appPages: { title: string; url: string; icon: string }[] = [];
+  public isAuthenticated = false;
+  public passwordInput = '';
+
+  private database = inject(Database);; // ← Inyectamos Firestore
 
   constructor() {
-    addIcons({
-      homeOutline, homeSharp,
-      documentTextOutline, documentTextSharp,
-      flameOutline, flameSharp,
-      helpCircleOutline, helpCircleSharp,
-      flash,
-      speedometer,
-      batteryCharging,
-      batteryFull,
-    });
-
+    addIcons({ homeOutline, homeSharp, documentTextOutline, documentTextSharp, flameOutline, flameSharp, helpCircleOutline, helpCircleSharp, flash, speedometer, batteryCharging, batteryFull });
     this.generarAppPagesDinamicamente();
   }
 
@@ -96,5 +98,23 @@ export class AppComponent {
         this.appPages.push({ title, url, icon });
       }
     }
+  }
+
+  public async desbloquearOpciones() {
+    try {
+      const passwordRef = ref(this.database, '/contrasenia/contraseña'); // ← Ruta exacta
+      const snapshot = await get(passwordRef);
+
+      if (snapshot.exists()) {
+        const storedPassword = snapshot.val();
+        this.isAuthenticated = this.passwordInput === String(storedPassword);
+      } else {
+        console.warn('No se encontró la contraseña en Realtime Database');
+      }
+    } catch (error) {
+      console.error('Error al obtener la contraseña desde Realtime Database:', error);
+    }
+
+    this.passwordInput = '';
   }
 }

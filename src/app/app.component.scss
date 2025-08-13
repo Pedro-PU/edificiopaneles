@@ -133,3 +133,17 @@ ion-menu.light-menu ion-item.selected ion-icon {
   font-weight: 400;
   letter-spacing: 0.4px;
 }
+
+.unlock-button {
+  --background: #00bcd4 !important;
+  --color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 12px;
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    --background: #00acc1 !important; // Un tono más oscuro al pasar el mouse
+  }
+}

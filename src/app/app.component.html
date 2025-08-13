@@ -4,16 +4,23 @@
       <ion-content class="light-menu">
         <ion-list id="inbox-list">
           <ion-list-header>Paneles Edificio</ion-list-header>
-
           @for (p of appPages; track p; let i = $index) {
-            <ion-menu-toggle auto-hide="false">
-              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-                <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-                <ion-label>{{ p.title }}</ion-label>
-              </ion-item>
-            </ion-menu-toggle>
+            @if (p.title === 'Principal' || isAuthenticated) {
+              <ion-menu-toggle auto-hide="false">
+                <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+                  <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                  <ion-label>{{ p.title }}</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+            }
           }
-
+          @if (!isAuthenticated) {
+            <ion-item>
+              <ion-label position="stacked">Contraseña</ion-label>
+              <ion-input [(ngModel)]="passwordInput" type="password" placeholder="••••••"></ion-input>
+              <ion-button expand="block" class="unlock-button" (click)="desbloquearOpciones()">Desbloquear</ion-button>
+            </ion-item>
+          }
         </ion-list>
       </ion-content>
       <ion-footer class="menu-footer">
