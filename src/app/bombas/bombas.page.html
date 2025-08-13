@@ -10,25 +10,41 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="bombas-wrapper">
 
-    <!-- Energía -->
-    <ion-card class="bomba-card">
-      <ion-card-header>
-        <ion-card-title>Energía</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row class="ion-justify-content-center ion-align-items-center gauges-row">
-          <ion-col size="12" size-md="4" class="gauge-col">
-            <app-energia-calle [activa]="energia.calle" nombre="Calle"></app-energia-calle>
-          </ion-col>
-          <ion-col size="12" size-md="4" class="gauge-col">
-            <app-v-bateria-grafico [voltajeBateria]="panel2.VBateria"></app-v-bateria-grafico>
-          </ion-col>
-          <ion-col size="12" size-md="4" class="gauge-col">
-            <app-energia-solar [activa]="energia.solar" nombre="Solar"></app-energia-solar>
-          </ion-col>
-        </ion-row>  
-      </ion-card-content>
-    </ion-card>
+    <!-- Energía + Batería -->
+    <div class="energia-bateria-wrapper">
+      <!-- Energía -->
+      <ion-card class="bomba-card energia-card">
+        <ion-card-header>
+          <ion-card-title>Energía</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="energia-inner">
+            <ion-row class="ion-justify-content-center ion-align-items-center gauges-row">
+              <ion-col size="12" size-md="6" class="gauge-col">
+                <app-energia-calle [activa]="energia.calle" nombre="Calle"></app-energia-calle>
+              </ion-col>
+              <ion-col size="12" size-md="6" class="gauge-col">
+                <app-energia-solar [activa]="energia.solar" nombre="Solar"></app-energia-solar>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Batería -->
+      <ion-card class="bomba-card bateria-card">
+        <ion-card-header>
+          <ion-card-title>Batería</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row class="ion-justify-content-center ion-align-items-center gauges-row">
+            <ion-col size="12" class="gauge-col">
+              <app-v-bateria-grafico [voltajeBateria]="panel2.VBateria"></app-v-bateria-grafico>
+            </ion-col>
+          </ion-row>  
+        </ion-card-content>
+      </ion-card>
+    </div>
 
     <!-- Grupo 01 -->
     <ion-card class="bomba-card">
