@@ -3,14 +3,135 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>datos</ion-title>
+    <ion-title>Datos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title>datos</ion-title>
+      <ion-title>Datos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngFor="let fecha of (datosAgrupados | keyvalue)">
+    <ion-card>
+      <ion-card-header class="fecha-header">
+        <div class="fecha-badge">
+          {{ fecha.key }}
+        </div>
+      </ion-card-header>
+      <ion-card-content class="contenedor">
+
+        <!-- Panel 1 -->
+        <div class="columna">
+          <br>
+          <h3>Panel 1</h3>
+          
+          <!-- Gráficos -->
+          <app-chart-panel
+            [datos]="fecha.value.panel01"
+            [curvaGlobal]="getCurvaGlobal('CSalida')"
+            tipo="CSalida">
+          </app-chart-panel>
+
+          <app-chart-panel
+            [datos]="fecha.value.panel01"
+            [curvaGlobal]="getCurvaGlobal('VSalida')"
+            tipo="VSalida">
+          </app-chart-panel>
+
+          <app-chart-panel
+            [datos]="fecha.value.panel01"
+            [curvaGlobal]="getCurvaGlobal('VPaneles')"
+            tipo="VPaneles">
+          </app-chart-panel>
+
+          <app-chart-panel
+            [datos]="fecha.value.panel01"
+            [curvaGlobal]="getCurvaGlobal('VBateria')"
+            tipo="VBateria">
+          </app-chart-panel>
+          <div *ngFor="let dato of fecha.value.panel01">
+            <ion-list>
+              <ion-item lines="none" class="hora-item">
+                <ion-label>Hora: {{ dato.hora }}</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon slot="start" color="tertiary" name="flash"></ion-icon>
+                <ion-label>Corriente: {{ dato.CSalida }} A</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon slot="start" color="primary" name="speedometer" ></ion-icon>
+                <ion-label>Voltaje Salida: {{ dato.VSalida }} V</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon slot="start" color="warning" name="battery-charging"></ion-icon>
+                <ion-label>Voltaje Paneles: {{ dato.VPaneles }} V</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon slot="start" color="success" name="battery-full"></ion-icon>
+                <ion-label>Batería: {{ dato.VBateria }} V</ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="columna">
+          <br>
+          <h3>Panel 2</h3>
+
+          <!-- Gráficos -->
+          <app-chart-panel
+            [datos]="fecha.value.panel02"
+            [curvaGlobal]="getCurvaGlobal('CSalida')"
+            tipo="CSalida">
+          </app-chart-panel>
+
+          <app-chart-panel
+            [datos]="fecha.value.panel02"
+            [curvaGlobal]="getCurvaGlobal('VSalida')"
+            tipo="VSalida">
+          </app-chart-panel>
+
+          <app-chart-panel
+            [datos]="fecha.value.panel02"
+            [curvaGlobal]="getCurvaGlobal('VPaneles')"
+            tipo="VPaneles">
+          </app-chart-panel>
+
+          <app-chart-panel
+            [datos]="fecha.value.panel02"
+            [curvaGlobal]="getCurvaGlobal('VBateria')"
+            tipo="VBateria">
+          </app-chart-panel>
+          <div *ngFor="let dato of fecha.value.panel02">
+            <ion-list>
+              <ion-item lines="none" class="hora-item">
+                <ion-label>Hora: {{ dato.hora }}</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon slot="start" color="tertiary" name="flash"></ion-icon>
+                <ion-label>Corriente: {{ dato.CSalida }} A</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon slot="start" color="primary" name="speedometer"></ion-icon>
+                <ion-label>Voltaje Salida: {{ dato.VSalida }} V</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon slot="start" color="warning" name="battery-charging"></ion-icon>
+                <ion-label>Voltaje Paneles: {{ dato.VPaneles }} V</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon slot="start" color="success" name="battery-full"></ion-icon>
+                <ion-label>Batería: {{ dato.VBateria }} V</ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

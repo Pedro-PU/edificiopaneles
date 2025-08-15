@@ -10,3 +10,156 @@ ion-title{
   letter-spacing: 0.5px;     // Espaciado entre letras para claridad
   text-align: center;
 }
+.fecha-card {
+  margin-bottom: 20px;
+  //border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+/* Encabezado de la fecha */
+.fecha-header {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  background: linear-gradient(135deg, #526e8a, #2ab3c8);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Estilo del "badge" de fecha */
+.fecha-badge {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.columna {
+  flex: 1;
+  min-width: 70vh;
+  height: 70vh;           // Ajusta la altura visible del contenedor
+  overflow-y: auto;       // Scroll vertical
+  padding-right: 10px;     // Para que no quede pegado
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columna h3 {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--ion-color-primary);
+  text-align: center;
+}
+
+ion-item {
+  --padding-start: 10px;
+  --inner-padding-end: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: var(--ion-color-light);
+
+  /* Borde oscuro */
+  border: 1px solid #8a8a8a; // o usa var(--ion-color-dark) si quieres el color de Ionic
+  /* Sombra */
+  box-shadow: 0 2px 6px rgba(16, 16, 16, 0.4);
+}
+
+
+ion-label h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+}
+
+ion-label p {
+  font-size: 14px;
+  color: var(--ion-color-medium);
+}
+
+:host {
+  /* Fuerza modo claro en toda la página */
+  --ion-background-color: #ffffff;
+  --ion-text-color: #000000;
+}
+
+/* Fondo general */
+ion-content {
+  --background: #ffffff !important;
+  color: #000000;
+}
+
+/* Cards */
+ion-card {
+  --background: #f9f9f9 !important;
+  color: #000000;
+  //border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+/* Encabezado de la fecha */
+ion-card-title {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Contenedor de las columnas */
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Columnas de panel */
+.columna {
+  flex: 1;
+  min-width: 250px;
+}
+
+.columna h3 {
+  color: #333333;
+  font-weight: bold;
+}
+
+/* Listas */
+ion-list {
+  background: #ffffff !important;
+  //border-radius: 8px;
+  padding: 0;
+}
+
+/* Items */
+ion-item {
+  --background: #ffffff !important;
+  --color: #000000 !important;
+  //border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+/* Iconos */
+ion-icon {
+  color: #2c3e50;
+}
+/* Ion-item de la hora siempre claro */
+ion-item.hora-item {
+  --background: #ebebeb !important; /* Fondo blanco */
+  --color: #000000 !important;       /* Texto negro */
+  --border-color: #e0e0e0 !important;/* Borde gris claro */
+  text-align: center;
+  //--border-radius: 6px;
+}
+
+.scroll-panel {
+  max-height: 300px; // ajusta según tu diseño
+  overflow-y: auto;
+  padding-right: 8px; // para evitar que el scroll tape contenido
+}
