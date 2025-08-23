@@ -5,7 +5,7 @@
         <ion-list id="inbox-list">
           <ion-list-header>Paneles Edificio</ion-list-header>
           @for (p of appPages; track p; let i = $index) {
-            @if (p.title === 'Principal' || isAuthenticated) {
+            @if (p.title === 'Principal' || p.title === 'Datos' || isAuthenticated) {
               <ion-menu-toggle auto-hide="false">
                 <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
                   <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>

@@ -20,7 +20,7 @@ import {
 
 
 import { Database, ref, onValue } from '@angular/fire/database';
-import { ChartPanelComponent } from '../components/chart-panel/chart-panel.component'; // ajusta la ruta si es necesario
+import { ChartPanelComponent } from '../components/chart-panel/chart-panel.component';
 interface DatosPorFecha {
   panel01: PanelData[];
   panel02: PanelData[];
@@ -75,6 +75,8 @@ export class DatosPage implements OnInit {
       Object.keys(data[panel]).forEach(mensaje => {
         const item: PanelData = data[panel][mensaje];
         const fecha = item.dia;
+        
+        item.potencia = item.VSalida * item.CSalida;
 
         if (!agrupado[fecha]) {
           agrupado[fecha] = { panel01: [], panel02: [] };
@@ -100,13 +102,15 @@ export class DatosPage implements OnInit {
     this.datosAgrupados = nuevoAgrupado;
   }
 
-  getCurvaGlobal(tipo: PanelNumericKey): { hora: string, valor: number }[] {
+  getCurvaPotencia(): { hora: string, valor: number }[] {
     const puntos: { hora: string, valor: number }[] = [];
 
     Object.values(this.datosAgrupados).forEach(fecha => {
       (['panel01', 'panel02'] as const).forEach(panel => {
         fecha[panel].forEach((dato: PanelData) => {
-          puntos.push({ hora: dato.hora, valor: dato[tipo] });
+          if (dato.potencia !== undefined) {
+            puntos.push({ hora: dato.hora, valor: dato.potencia });
+          }
         });
       });
     });
@@ -124,6 +128,7 @@ export interface PanelData {
   VSalida: number;
   dia: string;
   hora: string;
+  potencia?: number;
 }
 export type PanelNumericKey = 'CSalida' | 'VBateria' | 'VPaneles' | 'VSalida';
 

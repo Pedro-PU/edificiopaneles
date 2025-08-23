@@ -38,7 +38,7 @@ export class VBateriaGraficoComponent implements OnChanges {
   }
 
   private mapearBateriaAPorcentaje(v: number): number {
-    const min = 243;
+    const min = 210;//243
     const max = 260;
     const clamped = Math.max(min, Math.min(max, v));
     return ((clamped - min) / (max - min)) * 100;
