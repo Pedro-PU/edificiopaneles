@@ -48,9 +48,10 @@ export class ChartPanelComponent implements AfterViewInit {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: { position: 'top' },
-          title: { display: true, text: `${this.tipo} vs Hora` }
+          title: { display: true, text: `${this.tipo.charAt(0).toUpperCase() + this.tipo.slice(1)} vs Hora`  }
         },
         scales: {
           x: { title: { display: true, text: 'Hora' } },

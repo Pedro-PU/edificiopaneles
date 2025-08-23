@@ -123,12 +123,11 @@ export class DatosPage implements OnInit {
 
 export interface PanelData {
   CSalida: number;
-  VBateria: number;
-  VPaneles: number;
+  //VBateria: number;
+  //VPaneles: number;
   VSalida: number;
   dia: string;
   hora: string;
   potencia?: number;
 }
-export type PanelNumericKey = 'CSalida' | 'VBateria' | 'VPaneles' | 'VSalida';
 

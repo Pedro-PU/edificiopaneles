@@ -1,8 +1,9 @@
 .chart-container {
+  position: relative;
   width: 100%;
-  height: 300px;
-  canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
+  height: 300px; /* o la altura que quieras */
+}
+canvas {
+  width: 100%; /* sin !important */
+  height: auto; /* para mantener proporción */
 }
